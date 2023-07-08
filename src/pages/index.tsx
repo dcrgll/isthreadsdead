@@ -37,6 +37,14 @@ export default function Home() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@dcrgll" />
         <meta name="twitter:creator" content="@dcrgll" />
+        <meta
+          name="twitter:image"
+          content="https://isthreadsdeadyet.com/og.png"
+        />
+        <meta
+          name="twitter:image:alt"
+          content="The answer to the question: is threads dead yet?"
+        />
       </Head>
       <Image
         src="/shrug.png"
@@ -55,14 +63,14 @@ export default function Home() {
         <h2>No</h2>
       </div>
 
-      <div className="mt-24">
+      <div className="mt-16 text-center">
         Disagree?{' '}
         <button onClick={handleClick} className="underline">
           Express your opinion
         </button>
       </div>
 
-      <footer className="absolute bottom-4">
+      <footer className="absolute bottom-4 right-4 text-gray-500">
         by{' '}
         <button
           onClick={() => {
