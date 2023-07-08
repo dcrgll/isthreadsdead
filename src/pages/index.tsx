@@ -3,11 +3,18 @@ import Modal from '@/components/modal';
 import { useState } from 'react';
 import { Inter } from 'next/font/google';
 import Head from 'next/head';
+import { usePlausible } from 'next-plausible';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
+  const plausible = usePlausible();
+
+  const handleClick = () => {
+    plausible('disagree');
+    setIsOpen(true);
+  };
 
   return (
     <main
@@ -50,16 +57,22 @@ export default function Home() {
 
       <div className="mt-24">
         Disagree?{' '}
-        <button onClick={() => setIsOpen(true)} className="underline">
+        <button onClick={handleClick} className="underline">
           Express your opinion
         </button>
       </div>
 
       <footer className="absolute bottom-4">
         by{' '}
-        <a href="https://twitter.com/dcrgll" className="underline">
+        <button
+          onClick={() => {
+            plausible('dan');
+            window.open('https://twitter.com/dcrgll', '_blank');
+          }}
+          className="underline"
+        >
           dan
-        </a>
+        </button>
       </footer>
       <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
     </main>
