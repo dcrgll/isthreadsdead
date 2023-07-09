@@ -7,7 +7,7 @@ import { usePlausible } from 'next-plausible';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export default function Home() {
+export default function Home({ dead }: { dead: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const plausible = usePlausible();
 
@@ -51,6 +51,7 @@ export default function Home() {
         alt="is threads dead yet?"
         width={160}
         height={160}
+        priority
       />
       <h1 className="text-4xl font-bold text-center mt-4">
         is{' '}
@@ -60,7 +61,7 @@ export default function Home() {
         dead yet?
       </h1>
       <div className="flex flex-col items-center justify-center mt-24 text-6xl font-bold underline ">
-        <h2>No</h2>
+        <h2>{dead}</h2>
       </div>
 
       <div className="mt-16 text-center">
@@ -85,4 +86,13 @@ export default function Home() {
       <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
     </main>
   );
+}
+
+export async function getServerSideProps({ req }: { req: any }) {
+  console.log(req.headers['x-itdy']);
+  return {
+    props: {
+      dead: req.headers['x-itdy'] || 'no',
+    },
+  };
 }

@@ -56,8 +56,8 @@ export default function Modal({
                     💰<span className="underline">convince us</span>💰
                   </div>
                   <div className="space-y-2 mt-4 w-full">
-                    <BuyButton id="buy_btn_1NRiIoFtfr1QUwV6vU7q1lNJ" />
-                    <BuyButton id="buy_btn_1NRiFZFtfr1QUwV6y8yznOxb" />
+                    <BuyButton id="buy_btn_1NS1cdFtfr1QUwV6nan5aaxW" />
+                    <BuyButton id="buy_btn_1NS1bJFtfr1QUwV6TBUCszyP" />
                   </div>
                 </div>
               </Dialog.Panel>
